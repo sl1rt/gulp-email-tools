@@ -6,7 +6,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sl1rt/gulp-email-tools"
+  },
   "author": "Konstantin B https://github.com/sl1rt/",
+  "homepage": "https://github.com/sl1rt/gulp-email-tools",
   "license": "ISC",
   "dependencies": {
     "through2": "4.0.2"
