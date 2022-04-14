@@ -1,6 +1,6 @@
 {
   "name": "gulp-email-tools",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Email tags and attribute validator.",
   "main": "index.js",
   "scripts": {
@@ -12,8 +12,5 @@
   },
   "author": "Konstantin B https://github.com/sl1rt/",
   "homepage": "https://github.com/sl1rt/gulp-email-tools",
-  "license": "ISC",
-  "dependencies": {
-    "through2": "4.0.2"
-  }
+  "license": "ISC"
 }
