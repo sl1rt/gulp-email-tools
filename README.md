@@ -2,6 +2,7 @@
 Gulp плагин для инлайнинга стилей и небольшой валидацией
 
 # использование
+```js
 const {src, dest, series, watch} = require('gulp');
 const sync = require('browser-sync').create();
 const emailTools = require('email-tools');
@@ -31,3 +32,4 @@ function serve() {
 
 exports.build = series(html);
 exports.watch = series(html, serve);
+```
