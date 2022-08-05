@@ -79,7 +79,7 @@ module.exports = (options) => {
         errorMessage(`${matched.join(', ')} запрещено использовать в письмах`, index);
       }
 
-      if(matched = testLine.match(/<(div|p|ul|li|ol|picture|h1|h2|h3|h4|h5|h6)>/ig)) {
+      if(matched = testLine.match(/<(div|p|ul|li|ol|picture|h1|h2|h3|h4|h5|h6)(.)*?>/ig)) {
         errorMessage(`${matched.join(', ')} запрещено использовать в письмах`, index);
       }
 
