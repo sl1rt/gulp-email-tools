@@ -1,6 +1,6 @@
 {
   "name": "gulp-email-tools",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Email tags and attribute validator.",
   "main": "index.js",
   "scripts": {
