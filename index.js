@@ -75,7 +75,7 @@ module.exports = (options) => {
         errorMessage('Используйте корректный тип документа <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">', index);
       }
     
-      if(matched = testLine.match(/(colspan|rowspan)="(.*?)"/ig)) {
+      if(matched = testLine.match(/(colspan|rowspan)=[\"\'](.*?)[\"\']/ig)) {
         errorMessage(`${matched.join(', ')} запрещено использовать в письмах`, index);
       }
 
@@ -88,20 +88,20 @@ module.exports = (options) => {
       }
 
       // Проверка ссылок
-      if(testLine.match(/<a((.(?!http))*|(.(?!target="_blank"))*|(.(?!title="\w+"))*)>/ig)) {
+      if(testLine.match(/<a((.(?!http))*|(.(?!target=[\"\']_blank[\"\']))*|(.(?!title=[\"\'][^\"\']\w+[\"\']))*)>/ig)) {
         errorMessage('<a> для ссылок обязательно указание title, target="_blank" и протокола ссылок http/https', index);
       }
 
       // Проверка аттрибутов img
       if(matched = testLine.match(/<img(.)*?>/ig)) {
         matched.forEach((i) => {
-          if(i.match(/<img((.(?!alt="(.+)"))*)>/ig) ) {
+          if(i.match(/<img((.(?!alt=[\"\'][^\"\'].+[\"\']))*)>/ig) ) {
             errorMessage('<img> обязательно указывать alt', index);
           }
-          if(i.match(/<img(.(?!width="\d+"))*>/ig) ) {
+          if(i.match(/<img(.(?!width=[\"\']\d+[\"\']))*>/ig) ) {
             errorMessage('<img> обязательно указывать width', index);
           }
-          if(i.match(/<img(.(?!height="\d+"))*>/ig) ) {
+          if(i.match(/<img(.(?!height=[\"\']\d+[\"\']))*>/ig) ) {
             errorMessage('<img> обязательно указывать height', index);
           }
         });
@@ -110,19 +110,19 @@ module.exports = (options) => {
       // Проверка аттрибутов table
       if(matched = testLine.match(/<table(.)*?>/ig)) {
         matched.forEach((i) => {
-          if(i.match(/<table((.(?!cellpadding="(.+)"))*)>/ig) ) {
+          if(i.match(/<table((.(?!cellpadding=[\"\'][^\"\'].+[\"\']))*)>/ig) ) {
             errorMessage('<table> обязательно указывать cellpadding', index);
           }
-          if(i.match(/<table(.(?!cellspacing="(.+)"))*>/ig) ) {
+          if(i.match(/<table(.(?!cellspacing=[\"\'][^\"\'].+[\"\']))*>/ig) ) {
             errorMessage('<table> обязательно указывать cellspacing', index);
           }
           if(i.match(/<table(.(?!width="[\d%]+"))*>/ig) ) {
             errorMessage('<table> обязательно указывать width', index);
           }
-          if(i.match(/<table(.(?!border="(.+)"))*>/ig) ) {
+          if(i.match(/<table(.(?!border=[\"\'][^\"\'].+[\"\']))*>/ig) ) {
             errorMessage('<table> обязательно указывать border=""', index);
           }
-          if(i.match(/<table(.(?!bgcolor="(.{7})"))*>/ig) ) {
+          if(i.match(/<table(.(?!bgcolor=[\"\'][^\"\'](.{7})[\"\']))*>/ig) ) {
             errorMessage('<table> обязательно указывать bgcolor="#FFFFFF"', index);
           }
         });
