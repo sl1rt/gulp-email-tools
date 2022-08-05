@@ -122,7 +122,7 @@ module.exports = (options) => {
           if(i.match(/<table(.(?!border=[\"\'][^\"\'].*[\"\']))*>/ig) ) {
             errorMessage('<table> обязательно указывать border=""', index);
           }
-          if(i.match(/<table(.(?!bgcolor=[\"\'][^\"\'](.{7})[\"\']))*>/ig) ) {
+          if(i.match(/<table(.(?!bgcolor=[\"\'][^\"\'](.{6})[\"\']))*>/ig) ) {
             errorMessage('<table> обязательно указывать bgcolor="#FFFFFF"', index);
           }
         });
