@@ -110,16 +110,16 @@ module.exports = (options) => {
       // Проверка аттрибутов table
       if(matched = testLine.match(/<table(.)*?>/ig)) {
         matched.forEach((i) => {
-          if(i.match(/<table((.(?!cellpadding=[\"\'][^\"\'].+[\"\']))*)>/ig) ) {
+          if(i.match(/<table((.(?!cellpadding=[\"\'][^\"\'].*[\"\']))*)>/ig) ) {
             errorMessage('<table> обязательно указывать cellpadding', index);
           }
-          if(i.match(/<table(.(?!cellspacing=[\"\'][^\"\'].+[\"\']))*>/ig) ) {
+          if(i.match(/<table(.(?!cellspacing=[\"\'][^\"\'].*[\"\']))*>/ig) ) {
             errorMessage('<table> обязательно указывать cellspacing', index);
           }
           if(i.match(/<table(.(?!width="[\d%]+"))*>/ig) ) {
             errorMessage('<table> обязательно указывать width', index);
           }
-          if(i.match(/<table(.(?!border=[\"\'][^\"\'].+[\"\']))*>/ig) ) {
+          if(i.match(/<table(.(?!border=[\"\'][^\"\'].*[\"\']))*>/ig) ) {
             errorMessage('<table> обязательно указывать border=""', index);
           }
           if(i.match(/<table(.(?!bgcolor=[\"\'][^\"\'](.{7})[\"\']))*>/ig) ) {
